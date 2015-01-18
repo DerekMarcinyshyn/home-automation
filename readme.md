@@ -4,7 +4,7 @@ Home Automation is a Laravel web application for connecting together home consum
 
 Best to run this behind a firewall on LAN and not expose on the internet.
 
-It is currently in active development.
+This is currently in active development.
 
 ### Products
 
