@@ -1,5 +1,7 @@
 ## Home Automation
 
+[![Build Status](https://travis-ci.org/DerekMarcinyshyn/home-automation.svg?branch=master)](https://travis-ci.org/DerekMarcinyshyn/home-automation)
+
 Home Automation is a Laravel web application for connecting together home consumer products in one central location. 
 
 Best to run this behind a firewall on LAN and not expose on the internet.
