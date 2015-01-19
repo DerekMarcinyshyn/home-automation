@@ -40,6 +40,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="title">Home Automation</div>
+				<p>test</p>
 			</div>
 		</div>
 	</body>
