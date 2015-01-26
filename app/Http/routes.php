@@ -13,3 +13,5 @@ Route::get('/', 'WelcomeController@index');
 // Philips Hue Lights
 Route::get('/api/lights/get-lights', 'PhilipsHueController@getLights');
 
+Route::get('/api/lights/turn-off-all-lights', 'PhilipsHueController@turnOffAllLights');
+

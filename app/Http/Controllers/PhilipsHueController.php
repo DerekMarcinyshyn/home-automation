@@ -31,4 +31,8 @@ class PhilipsHueController extends Controller {
         return $this->lights->getLights();
     }
 
+    public function turnOffAllLights() {
+        return $this->lights->turnOffAllLights();
+    }
+
 }

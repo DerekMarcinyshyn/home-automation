@@ -43,4 +43,21 @@ class Lights {
 
         return $lights;
     }
+
+    /**
+     * Turn off all lights using GetGroupById(0)
+     *
+     * @return array
+     */
+    public function turnOffAllLights() {
+        try {
+            $group = $this->client->sendCommand(new \Phue\Command\GetGroupById(0));
+            $group->setOn(false);
+
+            return array('command' => true);
+        } catch (\Exception $e) {
+            dd($e);
+            return array('command' => false);
+        }
+    }
 }
