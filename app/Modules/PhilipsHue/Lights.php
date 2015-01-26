@@ -58,7 +58,7 @@ class Lights {
             return array('command' => true);
         } catch (\Exception $e) {
 
-            return array('command' => false);
+            return array('command' => $e->getMessage());
         }
     }
 
@@ -73,13 +73,13 @@ class Lights {
         try {
             $light = $this->client->sendCommand(new \Phue\Command\GetLightById($id));
             $command = new \Phue\Command\SetLightState($light);
-            $command->brightness($brightness)
-                    ->setOn(true);
+            $command->brightness($brightness);
             $this->client->sendCommand($command);
 
             return array('command' => true);
         } catch (\Exception $e) {
-            return array('command' => false);
+            dd($e);
+            return array('command' => $e->getMessage());
         }
     }
 }

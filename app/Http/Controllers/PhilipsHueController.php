@@ -47,12 +47,11 @@ class PhilipsHueController extends Controller {
     /**
      * Adjust light by id and brightness
      *
-     * @param Request $request
+     * @param $id
+     * @param $brightness
      * @return array
      */
-    public function adjustLight(Request $request) {
-        $id = $request->input('id');
-        $brightness = $request->input('brightness');
+    public function adjustLight($id, $brightness) {
         return $this->lights->adjustLight($id, $brightness);
     }
 }

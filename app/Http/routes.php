@@ -15,4 +15,4 @@ Route::get('api/lights/get-lights', 'PhilipsHueController@getLights');
 
 Route::get('api/lights/turn-off-all-lights', 'PhilipsHueController@turnOffAllLights');
 
-Route::get('api/lights/adjust/{id}/{brightness', 'PhilipsHueController@adjustLight');
+Route::get('api/lights/adjust/{id}/{brightness}', 'PhilipsHueController@adjustLight');
