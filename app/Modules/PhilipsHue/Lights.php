@@ -31,11 +31,13 @@ class Lights {
     public function getLights() {
         $lights = array();
         foreach ($this->client->getLights() as $lightId => $light) {
+            $light->isOn() ? $class = 'light-on' : $class = 'light-off';
             array_push($lights, array(
                 'id'            => $lightId,
                 'name'          => $light->getName(),
                 'brightness'    => $light->getBrightness(),
-                'isOn'          => $light->isOn()
+                'isOn'          => $light->isOn(),
+                'class'         => $class
             ));
         }
 
