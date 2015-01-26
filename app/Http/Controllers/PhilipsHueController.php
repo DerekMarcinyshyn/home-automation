@@ -7,6 +7,8 @@
  */
 
 use HomeAutomation\Modules\PhilipsHue\Lights;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class PhilipsHueController extends Controller {
 
@@ -25,14 +27,32 @@ class PhilipsHueController extends Controller {
     }
 
     /**
+     * Get all lights and their properties
+     *
      * @return \Phue\Light[]
      */
     public function getLights() {
         return $this->lights->getLights();
     }
 
+    /**
+     * Turn off all the lights via group 0
+     *
+     * @return array
+     */
     public function turnOffAllLights() {
         return $this->lights->turnOffAllLights();
     }
 
+    /**
+     * Adjust light by id and brightness
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function adjustLight(Request $request) {
+        $id = $request->input('id');
+        $brightness = $request->input('brightness');
+        return $this->lights->adjustLight($id, $brightness);
+    }
 }

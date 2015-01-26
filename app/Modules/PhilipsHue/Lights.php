@@ -57,7 +57,28 @@ class Lights {
 
             return array('command' => true);
         } catch (\Exception $e) {
-            dd($e);
+
+            return array('command' => false);
+        }
+    }
+
+    /**
+     * Adjust individual light
+     *
+     * @param $id
+     * @param $brightness
+     * @return array
+     */
+    public function adjustLight($id, $brightness) {
+        try {
+            $light = $this->client->sendCommand(new \Phue\Command\GetLightById($id));
+            $command = new \Phue\Command\SetLightState($light);
+            $command->brightness($brightness)
+                    ->setOn(true);
+            $this->client->sendCommand($command);
+
+            return array('command' => true);
+        } catch (\Exception $e) {
             return array('command' => false);
         }
     }
