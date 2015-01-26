@@ -31,9 +31,14 @@ class Lights {
     public function getLights() {
         $lights = array();
         foreach ($this->client->getLights() as $lightId => $light) {
-            array_push($lights, array($lightId => $light->getName()));
+            array_push($lights, array(
+                'id'            => $lightId,
+                'name'          => $light->getName(),
+                'brightness'    => $light->getBrightness(),
+                'isOn'          => $light->isOn()
+            ));
         }
-        
+
         return $lights;
     }
 }
