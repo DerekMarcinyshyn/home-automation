@@ -72,6 +72,7 @@ class Lights {
     public function adjustLight($id, $brightness) {
         try {
             $light = $this->client->sendCommand(new \Phue\Command\GetLightById($id));
+            $light->setOn(true);
             $command = new \Phue\Command\SetLightState($light);
             $command->brightness($brightness);
             $this->client->sendCommand($command);
