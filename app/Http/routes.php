@@ -8,3 +8,8 @@ Route::get('/', 'WelcomeController@index');
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
 //]);
+
+
+// Philips Hue Lights
+Route::get('/api/lights/get-lights', 'PhilipsHueController@getLights');
+

@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'HomeAutomation\Console\Commands\Inspire',
+		'HomeAutomation\Console\Commands\PhilipsHue',
 	];
 
 	/**
