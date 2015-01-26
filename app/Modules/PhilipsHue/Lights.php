@@ -32,10 +32,11 @@ class Lights {
         $lights = array();
         foreach ($this->client->getLights() as $lightId => $light) {
             $light->isOn() ? $class = 'light-on' : $class = 'light-off';
+            $light->isOn() ? $brightness = $light->getBrightness() : $brightness = 0;
             array_push($lights, array(
                 'id'            => $lightId,
                 'name'          => $light->getName(),
-                'brightness'    => $light->getBrightness(),
+                'brightness'    => $brightness,
                 'isOn'          => $light->isOn(),
                 'class'         => $class
             ));
