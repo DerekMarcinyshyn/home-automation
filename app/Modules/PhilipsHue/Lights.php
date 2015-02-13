@@ -29,20 +29,25 @@ class Lights {
      * @return \Phue\Light[]
      */
     public function getLights() {
-        $lights = array();
-        foreach ($this->client->getLights() as $lightId => $light) {
-            $light->isOn() ? $class = 'light-on' : $class = 'light-off';
-            $light->isOn() ? $brightness = $light->getBrightness() : $brightness = 0;
-            array_push($lights, array(
-                'id'            => $lightId,
-                'name'          => $light->getName(),
-                'brightness'    => $brightness,
-                'isOn'          => $light->isOn(),
-                'class'         => $class
-            ));
-        }
+        try {
+            $lights = array();
+            foreach ($this->client->getLights() as $lightId => $light) {
+                $light->isOn() ? $class = 'light-on' : $class = 'light-off';
+                $light->isOn() ? $brightness = $light->getBrightness() : $brightness = 0;
+                array_push($lights, array(
+                    'id'            => $lightId,
+                    'name'          => $light->getName(),
+                    'brightness'    => $brightness,
+                    'isOn'          => $light->isOn(),
+                    'class'         => $class
+                ));
+            }
 
-        return $lights;
+            return $lights;
+
+        } catch (\Exception $e) {
+            return array('error' => $e->getMessage());
+        }
     }
 
     /**
